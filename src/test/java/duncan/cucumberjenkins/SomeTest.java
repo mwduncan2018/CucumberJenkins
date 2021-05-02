@@ -9,7 +9,7 @@ class SomeTest {
 
 	@Test
 	void test1() {
-		fail("Not yet implemented");
+		assertEquals(false, true);
 	}
 	
 	@Test
