@@ -16,7 +16,7 @@ Feature: Login functionality and validations
 	Then a validation message is displayed stating the username and password combination is invalid
 
   @smoke
-  Scenario: Login with a valid usernmae and valid password
+  Scenario: Login with a valid username and valid password
 	Given I navigate to the login page
     When I login with a valid username field and a valid password
 	Then I am redirected to the Flight List page
