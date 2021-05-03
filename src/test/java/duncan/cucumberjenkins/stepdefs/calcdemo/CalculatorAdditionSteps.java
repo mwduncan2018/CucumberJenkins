@@ -1,8 +1,9 @@
-package duncan.cucumberjenkins.stepdefs;
+package duncan.cucumberjenkins.stepdefs.calcdemo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import duncan.cucumberjenkins.calculator.Calculator;
+import duncan.cucumberjenkins.stepdefs.ScenarioContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
