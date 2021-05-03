@@ -7,10 +7,10 @@ import duncan.cucumberjenkins.stepdefs.ScenarioContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-public class CalculatorSubtractionSteps {
+public class SubtractionSteps {
 	private ScenarioContext scenarioContext;
 	
-	public CalculatorSubtractionSteps(ScenarioContext scenarioContext) {
+	public SubtractionSteps(ScenarioContext scenarioContext) {
 		this.scenarioContext = scenarioContext;
 	}
 
