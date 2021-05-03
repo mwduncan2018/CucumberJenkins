@@ -1,4 +1,4 @@
-package duncan.cucumberjenkins;
+package duncan.cucumberjenkins.calculator;
 
 public class Calculator {
 	Integer result;
