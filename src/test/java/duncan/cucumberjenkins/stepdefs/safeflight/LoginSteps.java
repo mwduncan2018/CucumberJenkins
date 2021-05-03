@@ -20,8 +20,8 @@ public class LoginSteps {
 
 	@Given("I navigate to the login page")
 	public void navigateToTheLoginPage() {
-		Driver.initialize();
-		LoginPage.goTo();
+		scenarioContext.getContextBag().put("webdriver", Driver.createInstance());
+		LoginPage.goTo(scenarioContext.getContextBag().get("webdriver"));
 	}
 
 	@When("I login with a blank username field and a blank password field")

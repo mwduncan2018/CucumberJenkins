@@ -5,16 +5,17 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 
-class SomeTest {
+class DriverTests {
 
 	@Test
 	void test1() {
-		assertEquals(true, true);
-	}
-	
-	@Test
-	void test2() {
-		assertEquals(true, true);
+		Driver.createInstance();
+		Driver.createInstance();
+		Driver.createInstance("Stephanie");
+		
+		
+		LoginPage.goTo("Stephanie");
+		Driver.closeAll();
 	}
 
 }

@@ -9,30 +9,30 @@ public class WatchListPage extends BasePage {
 
 	static By TITLE = By.id("pageName");
 	
-	public static void goTo() {
-		Driver.instance.navigate().to(URL + "WatchList");
+	public static void goTo(String webdriver) {
+		Driver.getInstance(webdriver).navigate().to(URL + "WatchList");
 	}
 
-	public static boolean verifyIsAt() {
-		if (Driver.instance.findElement(TITLE).getText().equals("Create Watch List Entry")) {
+	public static boolean verifyIsAt(String webdriver) {
+		if (Driver.getInstance(webdriver).findElement(TITLE).getText().equals("Create Watch List Entry")) {
 			return true;
 		}
 		return false;
 	}
 
-	public static void deleteUserFromWatchList(String lastName, String firstName) throws Exception {
-		goTo();
-		List<WebElement> bountyList = Driver.instance.findElements(By.id("bounty"));
-		List<WebElement> firstNameList = Driver.instance.findElements(By.id("firstName"));
-		List<WebElement> lastNameList = Driver.instance.findElements(By.id("lastName"));
-		List<WebElement> deleteList = Driver.instance.findElements(By.linkText("Delete"));
+	public static void deleteUserFromWatchList(String webdriver, String lastName, String firstName) throws Exception {
+		goTo(webdriver);
+		List<WebElement> bountyList = Driver.getInstance(webdriver).findElements(By.id("bounty"));
+		List<WebElement> firstNameList = Driver.getInstance(webdriver).findElements(By.id("firstName"));
+		List<WebElement> lastNameList = Driver.getInstance(webdriver).findElements(By.id("lastName"));
+		List<WebElement> deleteList = Driver.getInstance(webdriver).findElements(By.linkText("Delete"));
 
 		int index = 0;
 		for (WebElement firstNameElement : firstNameList) {
 			if (firstNameElement.getText().equals(firstName)) {
 				if (lastNameList.get(index).getText().equals(lastName)) {
 					deleteList.get(index).click();
-					DeleteWatchListEntryPage.deleteEntry();
+					DeleteWatchListEntryPage.deleteEntry(webdriver);
 				}
 			}
 			index++;
