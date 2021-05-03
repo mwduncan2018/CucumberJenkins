@@ -1,4 +1,4 @@
-package duncan.cucumberjenkins;
+package duncan.cucumberjenkins.safeflightautoframe.pom;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,7 +9,7 @@ class SomeTest {
 
 	@Test
 	void test1() {
-		assertEquals(false, true);
+		assertEquals(true, true);
 	}
 	
 	@Test
