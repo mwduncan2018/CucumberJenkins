@@ -16,6 +16,9 @@ public class Driver {
 	public static void initialize() {
 		System.setProperty("webdriver.gecko.driver", GECKODRIVER_PATH);
 
+		if (instance != null) {
+			close();
+		}
 		if (instance == null) {
 			instance = new FirefoxDriver();
 		}

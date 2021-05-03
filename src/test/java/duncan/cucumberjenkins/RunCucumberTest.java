@@ -4,6 +4,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
+import duncan.cucumberjenkins.safeflightautoframe.pom.Driver;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.CucumberOptions.SnippetType;
@@ -28,6 +29,7 @@ public class RunCucumberTest {
 	public static void globalTearDown() {
 		System.out.println("*******************************************");
 		System.out.println("GLOBAL TEAR DOWN");
+		Driver.close();
 		System.out.println("*******************************************");
 	}
 }
