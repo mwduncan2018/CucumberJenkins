@@ -14,27 +14,27 @@ public class CreateFlightPage extends BasePage {
 	static By INPUT_LAST_NAME = By.id("LastName");
 	static By BTN_CREATE = By.id("btnCreate");
 
-	public static void goTo(String webdriver) {
-		Driver.getInstance(webdriver).navigate().to(URL + "Flights/Create");
+	public static void goTo() {
+		Driver.instance.navigate().to(URL + "Flights/Create");
 	}
 
-	public static boolean verifyIsAt(String webdriver) {
-		if (Driver.getInstance(webdriver).findElement(TITLE).getText().equals("Create Flight")) {
+	public static boolean verifyIsAt() {
+		if (Driver.instance.findElement(TITLE).getText().equals("Create Flight")) {
 			return true;
 		}
 		return false;
 	}
 
-	public static void createFlight(String webdriver, String departureAirport, String arrivalAirport, String departureTime,
+	public static void createFlight(String departureAirport, String arrivalAirport, String departureTime,
 			String arrivalTime, String firstName, String lastName) {
-		goTo(webdriver);
-		Driver.getInstance(webdriver).findElement(INPUT_DEPARTURE_AIRPORT).sendKeys(departureAirport);
-		Driver.getInstance(webdriver).findElement(INPUT_ARRIVAL_AIRPORT).sendKeys(arrivalAirport);
-		Driver.getInstance(webdriver).findElement(INPUT_DEPARTURE_TIME).sendKeys(departureTime);
-		Driver.getInstance(webdriver).findElement(INPUT_ARRIVAL_TIME).sendKeys(arrivalTime);
-		Driver.getInstance(webdriver).findElement(INPUT_FIRST_NAME).sendKeys(firstName);
-		Driver.getInstance(webdriver).findElement(INPUT_LAST_NAME).sendKeys(lastName);
-		Driver.getInstance(webdriver).findElement(BTN_CREATE).click();
+		goTo();
+		Driver.instance.findElement(INPUT_DEPARTURE_AIRPORT).sendKeys(departureAirport);
+		Driver.instance.findElement(INPUT_ARRIVAL_AIRPORT).sendKeys(arrivalAirport);
+		Driver.instance.findElement(INPUT_DEPARTURE_TIME).sendKeys(departureTime);
+		Driver.instance.findElement(INPUT_ARRIVAL_TIME).sendKeys(arrivalTime);
+		Driver.instance.findElement(INPUT_FIRST_NAME).sendKeys(firstName);
+		Driver.instance.findElement(INPUT_LAST_NAME).sendKeys(lastName);
+		Driver.instance.findElement(BTN_CREATE).click();
 	}
 
 }

@@ -9,13 +9,7 @@ class DriverTests {
 
 	@Test
 	void test1() {
-		Driver.createInstance();
-		Driver.createInstance();
-		Driver.createInstance("Stephanie");
 		
-		
-		LoginPage.goTo("Stephanie");
-		Driver.closeAll();
 	}
 
 }

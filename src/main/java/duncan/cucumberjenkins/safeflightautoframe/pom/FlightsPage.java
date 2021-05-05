@@ -22,17 +22,17 @@ public class FlightsPage extends BasePage {
 	private static List<WebElement> detailsColumn;
 	private static List<WebElement> deleteColumn;
 
-	private static void refreshTable(String webdriver) {
-		watchListColumn = Driver.getInstance(webdriver).findElements(By.cssSelector("#watchList > input"));
-		firstNameColumn = Driver.getInstance(webdriver).findElements(By.id("firstName"));
-		lastNameColumn = Driver.getInstance(webdriver).findElements(By.id("lastName"));
-		departureAirportColumn = Driver.getInstance(webdriver).findElements(By.id("departureAirport"));
-		departureTimeColumn = Driver.getInstance(webdriver).findElements(By.id("departureTime"));
-		arrivalAirportColumn = Driver.getInstance(webdriver).findElements(By.id("arrivalAirport"));
-		arrivalTimeColumn = Driver.getInstance(webdriver).findElements(By.id("arrivalTime"));
-		editColumn = Driver.getInstance(webdriver).findElements(By.linkText("Edit"));
-		detailsColumn = Driver.getInstance(webdriver).findElements(By.linkText("Details"));
-		deleteColumn = Driver.getInstance(webdriver).findElements(By.linkText("Delete"));
+	private static void refreshTable() {
+		watchListColumn = Driver.instance.findElements(By.cssSelector("#watchList > input"));
+		firstNameColumn = Driver.instance.findElements(By.id("firstName"));
+		lastNameColumn = Driver.instance.findElements(By.id("lastName"));
+		departureAirportColumn = Driver.instance.findElements(By.id("departureAirport"));
+		departureTimeColumn = Driver.instance.findElements(By.id("departureTime"));
+		arrivalAirportColumn = Driver.instance.findElements(By.id("arrivalAirport"));
+		arrivalTimeColumn = Driver.instance.findElements(By.id("arrivalTime"));
+		editColumn = Driver.instance.findElements(By.linkText("Edit"));
+		detailsColumn = Driver.instance.findElements(By.linkText("Details"));
+		deleteColumn = Driver.instance.findElements(By.linkText("Delete"));
 	}
 
 	private static Integer indexOf(String lastName, String firstName) {
@@ -50,20 +50,20 @@ public class FlightsPage extends BasePage {
 		return -1;
 	}
 
-	public static void goTo(String webdriver) {
-		Driver.getInstance(webdriver).navigate().to(URL + "Flights");
+	public static void goTo() {
+		Driver.instance.navigate().to(URL + "Flights");
 	}
 
-	public static boolean verifyIsAt(String webdriver) {
-		if (Driver.getInstance(webdriver).findElement(TITLE).getText().equals("Flight List")) {
+	public static boolean verifyIsAt() {
+		if (Driver.instance.findElement(TITLE).getText().equals("Flight List")) {
 			return true;
 		}
 		return false;
 	}
 
-	public static boolean verifyFlightIsDisplayed(String webdriver, Flight flight) {
-		goTo(webdriver);
-		refreshTable(webdriver);
+	public static boolean verifyFlightIsDisplayed(Flight flight) {
+		goTo();
+		refreshTable();
 		int index = indexOf(flight.getLastName(), flight.getFirstName());
 		if (index >= 0) {
 			if (firstNameColumn.get(index).getText().equals(flight.getFirstName())
@@ -78,19 +78,19 @@ public class FlightsPage extends BasePage {
 		return false;
 	}
 	
-	public static void deleteFlight(String webdriver, String lastName, String firstName) throws Exception {
-		goTo(webdriver);
-		refreshTable(webdriver);
+	public static void deleteFlight(String lastName, String firstName) throws Exception {
+		goTo();
+		refreshTable();
 		int index = indexOf(lastName, firstName);
 		if (index >= 0) {
 			deleteColumn.get(index).click();
-			DeleteFlightPage.deleteFlight(webdriver);
+			DeleteFlightPage.deleteFlight();
 		}
 	}
 
-	public static boolean verifyWatchListColumnIsCheckedFor(String webdriver, String lastName, String firstName) {
-		goTo(webdriver);
-		refreshTable(webdriver);
+	public static boolean verifyWatchListColumnIsCheckedFor(String lastName, String firstName) {
+		goTo();
+		refreshTable();
 		int index = indexOf(lastName, firstName);
 		if (index >= 0) {
 			if (watchListColumn.get(index).isSelected()) {

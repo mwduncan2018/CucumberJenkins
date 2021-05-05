@@ -29,7 +29,7 @@ public class RunCucumberTest {
 	public static void globalTearDown() {
 		System.out.println("*******************************************");
 		System.out.println("GLOBAL TEAR DOWN");
-		Driver.closeAll();
+		Driver.close();
 		System.out.println("*******************************************");
 	}
 }
