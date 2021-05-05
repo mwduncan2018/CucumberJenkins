@@ -24,7 +24,7 @@ public class SubtractionSteps {
 	@Then("the result is two")
 	public void theResultIsTwo() {
 		Integer actual = ((Calculator) scenarioContext.getContextBag().get("Calculator")).getResult();
-		assertEquals(2, actual);
+		assertEquals(1, actual); // DELIBERATE FAILURE!
 		scenarioContext.increment();
 		System.out.println(scenarioContext.getCount());
 	}

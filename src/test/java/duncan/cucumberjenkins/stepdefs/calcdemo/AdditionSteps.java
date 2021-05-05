@@ -31,7 +31,7 @@ public class AdditionSteps {
 	@Then("the result is five")
 	public void theResultIsFive() {
 		Integer actual = ((Calculator) scenarioContext.getContextBag().get("Calculator")).getResult();
-		assertEquals(5, actual);
+		assertEquals(4, actual); // DELIBERATE FAILURE!
 		scenarioContext.increment();
 		System.out.println(scenarioContext.getCount());
 	}
