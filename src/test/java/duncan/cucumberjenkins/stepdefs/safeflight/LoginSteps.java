@@ -20,7 +20,7 @@ public class LoginSteps {
 
 	@Given("I navigate to the login page")
 	public void navigateToTheLoginPage() {
-		Driver.initialize();
+		//Driver.initialize();
 		LoginPage.goTo();
 	}
 
@@ -51,7 +51,7 @@ public class LoginSteps {
 
 	@When("I login with a valid username field and a valid password")
 	public void loginWithValidUsernameAndValidPassword() {
-		LoginPage.login("mduncan", "password");
+		LoginPage.login("mduncan", "cucumber");
 	}
 	
 	@Then("I am redirected to the Flight List page")

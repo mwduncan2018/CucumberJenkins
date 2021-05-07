@@ -23,6 +23,7 @@ public class RunCucumberTest {
 		System.out.println("*******************************************");
 		System.out.println("GLOBAL SETUP");
 		System.out.println("*******************************************");
+		Driver.initialize();
 	}
 
 	@AfterClass
