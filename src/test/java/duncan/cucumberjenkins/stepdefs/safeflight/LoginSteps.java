@@ -20,7 +20,7 @@ public class LoginSteps {
 
 	@Given("I navigate to the login page")
 	public void navigateToTheLoginPage() {
-		//Driver.initialize();
+		Driver.initialize();
 		LoginPage.goTo();
 	}
 
