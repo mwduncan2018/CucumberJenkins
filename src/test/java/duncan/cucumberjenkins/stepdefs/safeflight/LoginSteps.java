@@ -51,7 +51,7 @@ public class LoginSteps {
 
 	@When("I login with a valid username field and a valid password")
 	public void loginWithValidUsernameAndValidPassword() {
-		LoginPage.login("mduncan", "cucumber");
+		LoginPage.login("mduncan", "password_is_cucumber");
 	}
 	
 	@Then("I am redirected to the Flight List page")
